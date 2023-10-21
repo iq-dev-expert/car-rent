@@ -1,0 +1,1 @@
+{"version":3,"file":"static/js/69.ac314c6e.chunk.js","mappings":"gKAAe,SAASA,IACtB,OAAOC,EAAAA,EAAAA,KAAA,MAAAC,SAAI,eACb,C","sources":["pages/CatalogPage.jsx"],"sourcesContent":["export default function CatalogPage() {\r\n  return <h1>CatalogPage</h1>;\r\n}\r\n"],"names":["CatalogPage","_jsx","children"],"sourceRoot":""}
