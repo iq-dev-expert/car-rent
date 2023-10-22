@@ -1,3 +1,5 @@
+import imgNotFound from 'images/img-not-found.jpg';
+
 export const CatalogItem = ({
   car: {
     img,
@@ -14,7 +16,7 @@ export const CatalogItem = ({
 }) => {
   return (
     <li>
-      <img src={img} alt={`Car ${make}`} />
+      <img src={img || imgNotFound} alt={`Car ${make}`} />
       <span>{make}</span>
       <span>{model}</span>
       <span>{year}</span>
