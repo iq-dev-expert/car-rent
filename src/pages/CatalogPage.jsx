@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { Loading } from 'notiflix';
 
 import { useCars } from 'hooks/useCars';
 
@@ -9,6 +10,8 @@ export default function CatalogPage() {
 
   useEffect(() => {
     fetchCars();
+
+    Loading.remove();
   }, [fetchCars]);
 
   return (
