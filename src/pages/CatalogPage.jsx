@@ -1,14 +1,23 @@
-import { useCars } from 'hooks/useCars';
 import { useEffect } from 'react';
+
+import { useCars } from 'hooks/useCars';
+
+import { CatalogItem } from 'components/CatalogItem/CatalogItem';
 
 export default function CatalogPage() {
   console.log('CatalogPage is call');
 
-  const { fetchCars } = useCars();
-  console.log(fetchCars);
+  const { cars, fetchCars } = useCars();
+
   useEffect(() => {
     fetchCars();
   }, [fetchCars]);
 
-  return <h1>CatalogPage</h1>;
+  return (
+    <ul>
+      {cars.map(car => (
+        <CatalogItem car={car} key={car.id} />
+      ))}
+    </ul>
+  );
 }
