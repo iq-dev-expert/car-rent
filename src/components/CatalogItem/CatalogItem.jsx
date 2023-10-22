@@ -1,4 +1,5 @@
 import imgNotFound from 'images/img-not-found.jpg';
+import { useEffect, useState } from 'react';
 
 export const CatalogItem = ({
   car: {
@@ -14,9 +15,28 @@ export const CatalogItem = ({
     accessories,
   },
 }) => {
+  const [validImage, setValidImage] = useState(false);
+
+  useEffect(() => {
+    const image = new Image();
+    image.src = img;
+
+    image.onload = () => {
+      setValidImage(true);
+    };
+
+    image.onerror = () => {
+      setValidImage(false);
+    };
+  }, [img]);
+
   return (
     <li>
-      <img src={img || imgNotFound} alt={`Car ${make}`} />
+      {validImage ? (
+        <img src={img} alt={`Car ${make}`} />
+      ) : (
+        <img src={imgNotFound} alt={`Car ${make}`} />
+      )}
       <span>{make}</span>
       <span>{model}</span>
       <span>{year}</span>
