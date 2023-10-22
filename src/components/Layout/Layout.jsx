@@ -1,5 +1,6 @@
 import { Suspense } from 'react';
 import { Link, Outlet } from 'react-router-dom';
+import { Loading } from 'notiflix';
 
 import { Filter } from 'components/Filter/Filter';
 
@@ -8,7 +9,7 @@ export const Layout = () => {
     <main>
       <Link to="/">Home</Link>
       <Filter />
-      <Suspense fallback={<div>Loading...</div>}>
+      <Suspense fallback={Loading.dots()}>
         <Outlet />
       </Suspense>
     </main>
